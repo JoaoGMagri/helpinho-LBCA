@@ -1,0 +1,33 @@
+<header class="flex justify-between items-center p-5">
+    
+    <img src="assets/logo-h.png" alt="">
+
+    <div class="space-x-14 font-semibold text-neutral-500/80 justify-center">
+        <a class="text-[#ff2e6b] underline decoration-2 underline-offset-8" href="">Home</a>
+        <a href="">Pesquisar</a>
+        <a href="">Sobre</a>
+    </div>
+    
+    <!--Logica para se estiver feito login ou não-->
+    @if (true) {
+        <!--Sem efetuar login-->
+        <div class="space-x-7">
+            <Button class="text-[#ff2e6b] bg-[#ffc8d6] rounded-lg p-2 ">Registre-se grátis</Button>
+            <Button class="text-[#ffc8d6] bg-[#ff2e6b] rounded-lg p-2">Login</Button>
+        </div>
+
+    } @else {
+        <!--Efetuado o login-->
+        <div class="flex items-center gap-3.5">
+            <img class="w-14 h-14 rounded-full" src="assets/usuario.jpg" alt="">
+            <div class="text-neutral-500/80">
+                <p class="text-xl">Olivia Rhye</p>
+                <p class="text-lg">oliviauntitledui.com</p>
+            </div>
+
+            <button class="bg-[#ff2e6b] rounded p-2"><img src="assets/log-out.png" alt=""></button>
+        </div>
+
+    }
+
+</header>
