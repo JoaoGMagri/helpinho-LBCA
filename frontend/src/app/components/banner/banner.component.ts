@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-banner-apresentation',
+  selector: 'app-banner',
   standalone: true,
   imports: [RouterLink],
-  templateUrl: './banner-apresentation.component.html',
+  templateUrl: './banner.component.html',
 })
-export class BannerApresentationComponent {
+export class BannerComponent {
   texts:string[] = ["Registro grátis", "Sem taxas", "Rápido e prático"]
 }

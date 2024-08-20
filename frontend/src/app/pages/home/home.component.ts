@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
-import { BannerApresentationComponent } from '../../components/banner-apresentation/banner-apresentation.component';
 import { CardComponent } from '../../components/card/card.component';
+import { BannerComponent } from '../../components/banner/banner.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, BannerApresentationComponent, CardComponent],
+  imports: [HeaderComponent, FooterComponent, BannerComponent, CardComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
