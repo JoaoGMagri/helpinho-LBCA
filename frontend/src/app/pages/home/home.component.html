@@ -1,44 +1,40 @@
-<body>
+<body class="">
     
     <app-header></app-header>
 
-    <div>
-        <!--Tela de apresentação do site-->
+    <!--Tela de apresentação do site-->
+        @if (true) {
             <app-banner-apresentation></app-banner-apresentation>
+        } @else {
+            <p>banner descrição</p>
+        }
+
+    <div class="w-full h-full p-5">
         <!--Tela de instruções do site-->
-            <ul class="flex justify-between w-full h-full ">
+        <ul class="flex justify-center items-center w-full h-full ">
+            <!--Um for para diminuit o código usando um array simples-->
+            @for (instruction of instructions; track $index) {
                 <li class="flex items-center w-1/4">
-                    <p>1.</p>
+                    <p>{{$index+1}}.</p>
                     <div>
-                        <p>Escolha</p>
-                        <p>Escolha um helpinho que deseja ajudar</p>
+                        <p>{{instruction.title}}</p>
+                        <p>{{instruction.description}}</p>
                     </div>
                 </li>
-                <li class="flex items-center w-1/4">
-                    <p>1.</p>
-                    <div>
-                        <p>Escolha</p>
-                        <p>Escolha um helpinho que deseja ajudar</p>
-                    </div>
-                </li>
-                <li class="flex items-center w-1/4">
-                    <p>1.</p>
-                    <div>
-                        <p>Escolha</p>
-                        <p>Escolha um helpinho que deseja ajudar</p>
-                    </div>
-                </li>
-                <li class="flex items-center w-1/4">
-                    <p>1.</p>
-                    <div>
-                        <p>Escolha</p>
-                        <p>Escolha um helpinho que deseja ajudar</p>
-                    </div>
-                </li>
-            </ul>
+            }
+        </ul>
         <!--Pesquisa dos helps-->
 
         <!--Helps-->
+        <div class=" grid grid-cols-3 ">
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+    
+            <app-card></app-card>
+            <app-card></app-card>
+            <app-card></app-card>
+        </div>
     </div>
 
     <app-footer></app-footer>
