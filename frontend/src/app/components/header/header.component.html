@@ -12,8 +12,13 @@
     @if (true) {
         <!--Sem efetuar login-->
         <div class="space-x-7">
-            <Button class="text-[#ff2e6b] bg-[#ffc8d6] rounded-lg p-2 ">Registre-se grátis</Button>
-            <Button class="text-[#ffc8d6] bg-[#ff2e6b] rounded-lg p-2">Login</Button>
+            <a [routerLink]="['/register']" >
+                <Button class="text-[#ff2e6b] bg-[#ffc8d6] rounded-lg p-2 ">Registre-se grátis</Button>
+            </a>
+            <a [routerLink]="['/login']" >
+                <Button class="text-[#ffc8d6] bg-[#ff2e6b] rounded-lg p-2">Login</Button>
+            </a>
+            
         </div>
 
     } @else {
