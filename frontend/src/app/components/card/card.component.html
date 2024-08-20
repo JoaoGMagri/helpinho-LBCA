@@ -1,22 +1,35 @@
-<div class="rounded-xl border bg-[url('assets/usuario.jpg')] w-96">
+<div class=" border rounded-xl w-96 m-10 flex flex-col justify-center items-center">
 
-    <div class=" flex justify-end items-end h-56">
-        <p class="">Games</p>
+    <div class=" flex justify-end items-end static w-full">
+        <img class="w-full h-56 rounded-t-xl bg-cover" src={{data()?.image}} alt="">
+        <p class="absolute bg-[#ffe2e7] text-[#ce024c] text-xs rounded-xl p-2 m-2">{{data()?.type}}</p>
     </div>
 
-    <div class="h=2/3 rounded-b-xl bg-white ">
+    <div>
         
-        <div class="flex items-center gap-3.5 ">
-            <img class="w-14 h-14 rounded-full" src="assets/usuario.jpg" alt="">
+        <div class="flex items-center gap-3.5 m-5">
+            <img class="w-8 h-8 rounded-full" src={{data()?.author?.image}} alt="">
             <div class="text-neutral-500/80">
-                <p class="text-xl">Olivia Rhye</p>
-                <p class="text-lg">oliviauntitledui.com</p>
+                <p class="text-sm">{{data()?.author?.name}}</p>
+                <p class="text-xs">{{data()?.author?.email}}</p>
             </div>
         </div>
 
-        <div>
-            <p>Comprar um ps5</p>
-            <p>Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo</p>
+        <div class="m-5">
+            <p class="text-2xl text-neutral-900 font-medium">{{data()?.title}}</p>
+            <p class="text-base text-neutral-600 line-clamp-2">{{data()?.decription}}</p>
+        </div>
+
+        <div class="flex justify-start static h-[40px]">        
+            @for (item of data()?.supporters; track $index;) {
+                <div class="ml-[20px]">
+                    @if ($index < 10) {
+                        <img class="w-8 h-8 rounded-full absolute overflow-hidden border-2 border-white" src={{item}} alt="">
+                    }@else if ($index == 10) {
+                        <div class="w-8 h-8 rounded-full border-2 border-white absolute bg-[#fff0f3] text-[#ff648e] flex justify-center items-center">+{{data()?.supporters?.length! - 10}}</div> 
+                    }
+                </div>
+            }
         </div>
 
     </div>

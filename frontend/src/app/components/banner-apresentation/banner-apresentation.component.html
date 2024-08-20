@@ -1,14 +1,14 @@
-<div class="flex justify-around p-20 w-full h-full bg-gradient-to-tl from-[#FF648E]">
+<div class="flex justify-around items-center p-20 w-full h-screen bg-gradient-to-tl from-[#FF648E]">
             
     <!--Box de texto-->
-    <div class="w-2/5 flex flex-col justify-center items-baseline">
+    <div class="w-[635px] h-[390px] flex flex-col justify-center items-baseline">
         
-        <div class="flex justify-between bg-white bg-opacity-50 rounded-xl p-3 text-lg mb-5 w-3/4">
+        <div class="flex justify-between bg-white bg-opacity-50 rounded-xl p-3 text-lg mb-5 w-[498px]">
             <!--Um for para diminuit o código usando um array simples-->
             @for (text of texts; track $index) {
                 <div class="flex px-3">
                     <img src="assets/check.png" alt="">
-                    <p class="px-1">{{text}}</p>
+                    <p class="px-1 text-[17px]">{{text}}</p>
                 </div>
             }
         </div>
@@ -22,8 +22,8 @@
     </div>
 
     <!--Box de imagens-->
-    <div class=" flex justify-between items-end w-1/4">
-        <img class="w-1/2 h-50 rounded-full" src="assets/usuario.jpg" alt="">
-        <img class="w-1/4 h-60 rounded-full" src="assets/usuario.jpg" alt="">
+    <div class="w-1/2 flex justify-evenly items-end">
+        <img class="w-[300px] h-[530px] rounded-full" src="assets/modelo_banner1.png" alt="">
+        <img class="w-[190px] h-[400px] rounded-full" src="assets/modelo_banner2.png" alt="">
     </div>
 </div>
