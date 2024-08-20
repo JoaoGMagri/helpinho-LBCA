@@ -2,7 +2,11 @@
 module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        'image-gradiante': "url('/assets/texture.png')",
+      }
+    },
   },
   plugins: [],
 }
