@@ -1,1 +1,67 @@
-<p>register works!</p>
+<div class="w-full h-screen flex justify-around p-[20px]">
+
+    <!--Bloco de formulario de registro-->
+    <div class="w-1/2 flex flex-col justify-around items-center relative">
+        <!--Logo do helpinho-->
+        <img [routerLink]="['']" class="absolute top-0 left-0 cursor-pointer" src="assets/logo-h.png" alt="">
+
+        <div class="text-[#4f4f4f] text-[14px] flex flex-col justify-center items-center">
+            <!--Texto de boas vindas-->
+            <div class=" flex flex-col items-start mb-8 w-[400px]">
+                <h1 class="text-[30px] text-[#3d3d3d]">Registre-se grátis</h1>
+                <p class="text-[16px]">Seja bem vindo! Estamos felizes em te-lo na nossa rede de apoio</p>
+            </div>
+            <!--Formulario-->
+            <form action="" class="flex flex-col w-[400px]">
+                <label for="" class="mb-2">Nome*</label>
+                <input type="text" class="border-[2px] rounded-lg mb-5 h-[44px]">
+                
+                <label for="" class="mb-2">Email*</label>
+                <input type="text" class="border-[2px] rounded-lg mb-5 h-[44px]">
+
+                <div class="flex justify-between">
+                    <div class="flex flex-col w-1/2 mr-[20px]">
+                        <label for="" class="mb-2">CPF/CNPJ*</label>
+                        <input type="text" class="border-[2px] rounded-lg mb-5 h-[44px]">
+                    </div>
+
+                    <div class="flex flex-col w-1/2">
+                        <label for="" class="mb-2">Data de nacimento*</label>
+                        <input type="date" class="border-[2px] rounded-lg mb-5 h-[44px]">
+                    </div>
+                </div>
+                
+                <label for="" class="mb-2">Senha*</label>
+                <input type="password" class="border-[2px] rounded-lg h-[44px]">
+                <p class="tex-[#5d5d5d] text-[14px]">No mínimo 8 caraacteres, Letras e números</p>
+
+                <div class="flex flex-col">
+                    <button class=" bg-[#f40b59] text-white text-[16px] rounded-lg h-[44px] my-[20px]">Cadastre grátis</button>
+                    
+                    <button class="flex justify-center items-center bg-white text-[16px] border-[2px] rounded-lg h-[44px]">
+                        <img src="assets/googleIcon.png" alt="" class="mr-[10px]">
+                        <p>Continuar com google</p>
+                    </button>
+                </div>
+            </form>
+            <!--Opção de Login-->
+            <p class="text-[#4f4f4f] text-[14px] flex justify-center my-[10px]">
+                Já tem uma conta?
+                <a [routerLink]="['/login']" class="text-[#ce024c] ml-[5px]">Faça login</a>
+            </p>
+        </div>
+        <!--Footer-->
+        <div class="w-full absolute bottom-0 flex justify-between p-[10px]">
+            <p>© Helpinho 2077</p>
+            <div class="flex">
+                <img src="assets/mail.png" alt="" class="w-[13px] h=[13px] mr-[5px]">
+                <p> help&#64;elpinho.com</p>
+            </div>
+        </div>
+    </div>
+
+    <!--Carrosel de imagens-->
+    <div class="w-1/2 bg-[url('assets/usuario.jpg')] rounded-xl mx-[10px]">
+        <p>teste</p>
+    </div>
+</div>
