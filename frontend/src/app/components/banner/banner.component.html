@@ -1,29 +1,58 @@
 <div class="flex justify-around items-center p-20 w-full h-screen bg-gradient-to-tl from-[#FF648E]">
+     
+    @if (true) {
+        <!--Box de texto-->
+        <div class="w-[635px] h-[390px] flex flex-col justify-center items-baseline">
             
-    <!--Box de texto-->
-    <div class="w-[635px] h-[390px] flex flex-col justify-center items-baseline">
-        
-        <div class="flex justify-between bg-white bg-opacity-50 rounded-xl p-3 text-lg mb-5 w-[498px]">
-            <!--Um for para diminuit o código usando um array simples-->
-            @for (text of texts; track $index) {
-                <div class="flex px-3">
-                    <img src="assets/check.png" alt="">
-                    <p class="px-1 text-[17px]">{{text}}</p>
+            <div class="flex justify-between bg-white bg-opacity-50 rounded-xl p-3 text-lg mb-5 w-[498px]">
+                <!--Um for para diminuit o código usando um array simples-->
+                @for (text of texts; track $index) {
+                    <div class="flex justify-center items-center px-3">
+                        <img class="w-[18px] h-[18px]" src="assets/check.png" alt="">
+                        <p class="px-1 text-[17px]">{{text}}</p>
+                    </div>
+                }
+            </div>
+    
+            <div class="text-5xl mb-5">Faça a diferença com apenas <span class="text-[#f40b59]">um helpinho</span></div>
+            <div class="text-2xl mb-5">Os helpinho pode parecer pequenos, mas juntos fazem a <span class="text-[#f40b59]">diferença na vida de todos</span></div>
+            <a [routerLink]="['/register']" >
+                <Button class="text-[#ffc8d6] bg-[#ff2e6b] rounded-lg p-2 ">Registre-se grátis</Button>
+            </a>
+    
+        </div>
+    
+        <!--Box de imagens-->
+        <div class="w-1/2 flex justify-evenly items-end">
+            <img class="w-[300px] h-[530px] rounded-full" src="assets/modelo_banner1.png" alt="">
+            <img class="w-[190px] h-[400px] rounded-full" src="assets/modelo_banner2.png" alt="">
+        </div>
+    }@else {
+        <div>
+            <p class="text-[40px] text-[#454545]">Olá <span class="text-[48px] font-semibold">Olivia Rhye</span></p>
+            
+            <p class="text-[24px] text-[#5d5d5d] my-20">Vamos dá um <span class="text-[#fa0b59]">helpinho</span> hoje? Separamos uma seleção especial para você</p>
+
+            <div class="flex justify-center items-center w-1/2 h-[80px] bg-white bg-opacity-50 rounded-xl text-[17px] text-[#5d5d5d]">
+                <div class="p-10">
+                    <p>Acompanhando </p> 
+                    <span class="text[24px] text-[#ff2e6b]">17</span> 
+                    <span> helpinhos</span>
                 </div>
-            }
+                <div class="p-10">
+                    <p>Criou </p>
+                    <span class="text[24px] text-[#ff2e6b]">17</span> 
+                    <span> helpinhos</span>
+                </div>
+            </div>
         </div>
 
-        <div class="text-5xl mb-5">Faça a diferença com apenas <span class="text-[#f40b59]">um helpinho</span></div>
-        <div class="text-2xl mb-5">Os helpinho pode parecer pequenos, mas juntos fazem a <span class="text-[#f40b59]">diferença na vida de todos</span></div>
-        <a [routerLink]="['/register']" >
-            <Button class="text-[#ffc8d6] bg-[#ff2e6b] rounded-lg p-2 ">Registre-se grátis</Button>
-        </a>
+        <div class="w-[210px] h-[250px] flex flex-col justify-center items-center bg-[url('assets/mask-group.png')] bg-no-repeat text-[14px] text-[#3d3d3d]">
+            <p>Você já doou</p>
+            <p class="text-[17px] text-[#ff2e6b]">R$ <span class="text-[40px] text-[#f40b59]">1.516,25</span> </p>
+            <p class="text-[40px] text-[#f40b59] mt-10">17</p>
+            <p>Helpinhos alegres</p>
+        </div>
+    }
 
-    </div>
-
-    <!--Box de imagens-->
-    <div class="w-1/2 flex justify-evenly items-end">
-        <img class="w-[300px] h-[530px] rounded-full" src="assets/modelo_banner1.png" alt="">
-        <img class="w-[190px] h-[400px] rounded-full" src="assets/modelo_banner2.png" alt="">
-    </div>
 </div>
