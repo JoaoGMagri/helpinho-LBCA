@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
@@ -9,4 +9,6 @@ import { RouterLink } from '@angular/router';
 })
 export class BannerComponent {
   texts:string[] = ["Registro grátis", "Sem taxas", "Rápido e prático"]
+
+  loginStatus = input<Boolean>();
 }

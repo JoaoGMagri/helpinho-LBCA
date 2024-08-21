@@ -1,13 +1,9 @@
 <body class="">
-    
-    <app-header></app-header>
+    <!--Header-->
+    <app-header [loginStatus]="loginStatus"/>
 
-    <!--Tela de apresentação do site-->
-    @if (true) {
-        <app-banner></app-banner>
-    } @else {
-        <p>banner descrição</p>
-    }
+    <!--Tela de apresentação do site(Banner)-->
+    <app-banner [loginStatus]="loginStatus"/>
 
     <!--Tela de instruções do site-->
     <ul class="flex justify-center my-20">
@@ -27,20 +23,26 @@
     <form class="h-[64px] flex justify-center">
         <input class="w-[798px] h-[64px] border-2 mr-10 rounded-xl" type="text" placeholder="Quem vamos ajudar hoje?">
         <select class="w-[320px] border-2 rounded-xl" name="" id="">
+            <option value="">Escolha uma categoria</option>
             <option value="Games">Games</option>
             <option value="Literatura">Literatura</option>
             <option value="Doença">Doença</option>
         </select>
     </form>
 
-    <!--Helps-->
+    <!--Helps Card-->
     <div class="flex justify-center">
         <div class="grid grid-cols-3">
             @for (teste of testes; track $index) {
-                <app-card [data]="teste"></app-card>
+                @if(!teste.urgent){
+                    <app-card [data]="teste" />
+                }@else {
+                    <app-card-urgent [data]="teste" />
+                }
             }
         </div>
     </div>
 
-    <app-footer></app-footer>
+    <!--Footer-->
+    <app-footer/>
 </body>

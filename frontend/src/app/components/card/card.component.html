@@ -1,12 +1,12 @@
 <div class=" border rounded-xl w-96 m-10 flex flex-col justify-center items-center">
-
+    <!--Imagem do Help-->
     <div class=" flex justify-end items-end static w-full">
         <img class="w-full h-56 rounded-t-xl bg-cover" src={{data()?.image}} alt="">
         <p class="absolute bg-[#ffe2e7] text-[#ce024c] text-xs rounded-xl p-2 m-2">{{data()?.type}}</p>
     </div>
 
     <div>
-        
+        <!--Informações do Criador do help-->
         <div class="flex items-center gap-3.5 m-5">
             <img class="w-8 h-8 rounded-full" src={{data()?.author?.image}} alt="">
             <div class="text-neutral-500/80">
@@ -14,12 +14,12 @@
                 <p class="text-xs">{{data()?.author?.email}}</p>
             </div>
         </div>
-
+        <!--Descrição do help-->
         <div class="m-5">
             <p class="text-2xl text-neutral-900 font-medium">{{data()?.title}}</p>
             <p class="text-base text-neutral-600 line-clamp-2">{{data()?.decription}}</p>
         </div>
-
+        <!--Apoiadores do help-->
         <div class="flex justify-start static h-[40px]">        
             @for (item of data()?.supporters; track $index;) {
                 <div class="ml-[20px]">

@@ -1,0 +1,43 @@
+<div class="w-96 m-10 z-10" >
+
+    <div class="relative">
+        <!--Imagem do Help-->
+        <div class="">
+            <img class="w-full h-[442px] rounded-xl bg-cover" src={{data()?.image}} alt="">
+        </div>  
+
+        <div class=" h-full flex flex-col justify-between absolute top-0 w-96 bg-opacity-20 rounded-xl bg-[#ff2e6b]">
+            <!--Informações do Criador do help-->
+            <div class="w-full flex justify-between items-center">
+                <div class="flex items-center gap-3.5 m-5">
+                    <img class="w-8 h-8 rounded-full" src={{data()?.author?.image}} alt="">
+                    <p class="text-[14px] text-[#f6f6f6]">{{data()?.author?.name}}</p>
+                </div>
+                
+                <p class="bg-[#ffe2e7] text-[#ce024c] text-xs rounded-xl p-2 m-2">{{data()?.type}}</p>
+            </div>
+            <!--Descrição do help-->
+            <div class="m-5">
+                <p class="text-[24px] text-white font-medium">{{data()?.title}}</p>
+                <p class="text-[16px] text-[#f6f6f6] line-clamp-6">{{data()?.decription}}</p>
+            </div>
+            <!--Notificação de urgencia-->
+            <div class="bg-[#ff2e6b] opacity-60 rounded-xl m-5 h-[36px] flex justify-center items-center z-10">
+                <p class="text-[14px] text-white">Helpinho urgente validado pela nossa equipe</p>
+            </div>
+            <!--Apoiadores do help-->
+            <div class="flex justify-start static h-[40px]">        
+                @for (item of data()?.supporters; track $index;) {
+                    <div class="ml-[20px]">
+                        @if ($index < 10) {
+                            <img class="w-8 h-8 rounded-full absolute overflow-hidden border-2 border-white" src={{item}} alt="">
+                        }@else if ($index == 10) {
+                            <div class="w-8 h-8 rounded-full border-2 border-white absolute bg-[#fff0f3] text-[#ff648e] flex justify-center items-center">+{{data()?.supporters?.length! - 10}}</div> 
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>

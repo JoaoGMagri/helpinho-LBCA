@@ -3,14 +3,17 @@ import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CardComponent } from '../../components/card/card.component';
 import { BannerComponent } from '../../components/banner/banner.component';
+import { CardUrgentComponent } from '../../components/card-urgent/card-urgent.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, BannerComponent, CardComponent],
+  imports: [HeaderComponent, FooterComponent, BannerComponent, CardComponent, CardUrgentComponent],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
+
+  loginStatus:Boolean = false;
 
   instructions = [
     {
@@ -42,6 +45,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg",
       },
+      urgent:true,
       supporters: []
     },
     {
@@ -54,6 +58,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg",
       },
+      urgent:false,
       supporters: []
     },
     {
@@ -66,6 +71,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg",
       },
+      urgent:false,
       supporters: []
     },
     {
@@ -78,6 +84,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg", 
       },
+      urgent:false,
       supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"]
     },
     {
@@ -90,6 +97,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg", 
       },
+      urgent:true,
       supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"]
     },
     {
@@ -102,6 +110,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg" 
       },
+      urgent:false,
       supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"],
     },
     {
@@ -114,6 +123,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg" 
       },
+      urgent:false,
       supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"],
     },
     {
@@ -126,6 +136,7 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg", 
       },
+      urgent:false,
       supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"]
     },
     {
@@ -138,8 +149,9 @@ export class HomeComponent {
         email: "olivia@untitledui.com", 
         image: "assets/usuario.jpg",
       },
+      urgent:true,
       supporters: []
     },
-]
+  ]
 
 }
