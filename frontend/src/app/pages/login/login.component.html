@@ -1,29 +1,59 @@
-<div class="flex justify-around">
+<div class="w-full h-screen flex justify-around p-[20px]">
 
-    <div>
+    <!--Bloco de formulario de login-->
+    <div class="w-1/2 flex flex-col justify-around items-center relative">
+        <!--Logo do helpinho-->
+        <img class="absolute top-0 left-0" src="assets/logo-h.png" alt="">
 
-        <img src="assets/logo-h.png" alt="">
-
-        <h1>texto</h1>
-        <p>alguma coisa</p>
-
-        <form action="">
-            <p>E-mail</p>
-            <input type="text">
-            <p>Senha</p>
-            <input type="text">
-
-            <div class="flex flex-col">
-                <button>Entrar</button>
-                <button>Continuar com google</button>
+        <div class="text-[#4f4f4f]">
+            <!--Texto de boas vindas-->
+            <div class=" flex flex-col items-center mb-10">
+                <h1 class="text-[30px] text-[#3d3d3d]">Bem vindo de volta!</h1>
+                <p class="text-[16px]">Entre e ajude os helpinho de hoje</p>
             </div>
-        </form>
+            <!--Formulario-->
+            <form action="" class="text-[14px] flex flex-col w-[400px]">
+                <label for="" class="mb-2">E-mail</label>
+                <input type="text" class="border-[2px] rounded-lg mb-5 h-[44px]">
+                
+                <label for="" class="mb-2">Senha</label>
+                <input type="password" class="border-[2px] rounded-lg mb-5 h-[44px]">
+                
+                <div class="flex justify-between items-center mb-[10px]">
+                    <div class="flex items-center">
+                        <input type="checkbox" id="check" class="mr-[5px]">
+                        <label for="check">Lembre-se por 30 dias</label>
+                    </div>
+                    <a class="text-[#ce024c]">Esqueceu a senha?</a>
+                </div>
 
+                <div class="flex flex-col">
+                    <button class=" bg-[#f40b59] text-white text-[16px] rounded-lg h-[44px] my-[20px]">Entrar</button>
+                    
+                    <button class="flex justify-center items-center bg-white text-[16px] border-[2px] rounded-lg h-[44px]">
+                        <img src="assets/googleIcon.png" alt="" class="mr-[10px]">
+                        <p>Continuar com google</p>
+                    </button>
+                </div>
+            </form>
+            <!--Opção de Registro-->
+            <p class="text-[#4f4f4f] text-[14px] flex justify-center my-[10px]">
+                Ainda não faz conhece o helpinho?
+                <a [routerLink]="['/register']" class="text-[#ce024c] ml-[5px]">Registre-se grátis</a>
+            </p>
+        </div>
+        <!--Footer-->
+        <div class="w-full absolute bottom-0 flex justify-between p-[10px]">
+            <p>© Helpinho 2077</p>
+            <div class="flex">
+                <img src="assets/mail.png" alt="" class="w-[13px] h=[13px] mr-[5px]">
+                <p> help&#64;elpinho.com</p>
+            </div>
+        </div>
     </div>
 
-    <div class="bg-[url('assets/usuario.jpg')]">
+    <!--Carrosel de imagens-->
+    <div class="w-1/2 bg-[url('assets/usuario.jpg')] rounded-xl mx-[10px]">
         <p>teste</p>
     </div>
-
-
 </div>
