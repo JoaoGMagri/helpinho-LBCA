@@ -9,11 +9,11 @@ userRouter
     .post("/", async (req: Request, res: Response ) => {
         const data = req.body;
 
-        db.user.push(new User(data))
+        db.user.push(new User(data));
         return res.status(httpStatus.CREATED).json(data);
     })
 
-    .get("/", async (req: Request, res: Response ) => {
+    .get("/teste", async (req: Request, res: Response ) => {
         let data:any = {...db.user}
         return res.json(data);
     })
