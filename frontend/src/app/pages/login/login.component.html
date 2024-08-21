@@ -1,23 +1,23 @@
-<div class="w-full h-screen flex justify-around p-[20px]">
+<div class="container-Login">
 
     <!--Bloco de formulario de login-->
-    <div class="w-1/2 flex flex-col justify-around items-center relative">
+    <div class="box-left">
         <!--Logo do helpinho-->
-        <img [routerLink]="['']" class="absolute top-0 left-0 cursor-pointer" src="assets/logo-h.png" alt="">
+        <img [routerLink]="['']" class="imagem-Logo" src="assets/logo-h.png" alt="">
 
-        <div class="text-[#4f4f4f]">
+        <div>
             <!--Texto de boas vindas-->
-            <div class=" flex flex-col items-center mb-10">
+            <div class="box-welcome">
                 <h1 class="text-[30px] text-[#3d3d3d]">Bem vindo de volta!</h1>
-                <p class="text-[16px]">Entre e ajude os helpinho de hoje</p>
+                <p class="text-[16px] text-[#4f4f4f]">Entre e ajude os helpinho de hoje</p>
             </div>
             <!--Formulario-->
-            <form action="" class="text-[14px] flex flex-col w-[400px]">
-                <label for="" class="mb-2">E-mail</label>
-                <input type="email" class="border-[2px] rounded-lg mb-5 h-[44px]">
+            <form action="" class="form">
+                <label for="" class="label">E-mail</label>
+                <input type="email" class="input">
                 
-                <label for="" class="mb-2">Senha</label>
-                <input type="password" class="border-[2px] rounded-lg mb-5 h-[44px]">
+                <label for="" class="label">Senha</label>
+                <input type="password" class="input">
                 
                 <div class="flex justify-between items-center mb-[10px]">
                     <div class="flex items-center">
@@ -27,10 +27,10 @@
                     <a class="text-[#ce024c]">Esqueceu a senha?</a>
                 </div>
 
-                <div class="flex flex-col">
-                    <button class=" bg-[#f40b59] text-white text-[16px] rounded-lg h-[44px] my-[20px]">Entrar</button>
+                <div class="box-button">
+                    <button class="button bg-[#f40b59] text-white">Entrar</button>
                     
-                    <button class="flex justify-center items-center bg-white text-[16px] border-[2px] rounded-lg h-[44px]">
+                    <button class="button flex justify-center items-center bg-white border-[2px] ">
                         <img src="assets/googleIcon.png" alt="" class="mr-[10px]">
                         <p>Continuar com google</p>
                     </button>
@@ -43,7 +43,7 @@
             </p>
         </div>
         <!--Footer-->
-        <div class="w-full absolute bottom-0 flex justify-between p-[10px]">
+        <div class="footer">
             <p>© Helpinho 2077</p>
             <div class="flex">
                 <img src="assets/mail.png" alt="" class="w-[13px] h=[13px] mr-[5px]">
@@ -53,7 +53,7 @@
     </div>
 
     <!--Carrosel de imagens-->
-    <div class="w-1/2 bg-[url('assets/usuario.jpg')] rounded-xl mx-[10px]">
+    <div class="box-right bg-[url('assets/usuario.jpg')]">
         <p>teste</p>
     </div>
 </div>
