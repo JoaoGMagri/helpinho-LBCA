@@ -1,22 +1,33 @@
 import { Request, Response, Router } from "express";
 import httpStatus from "http-status";
-import { db } from "../config/database";
-import { User } from "../config/type";
+//const bcrypt = require("bcrypt");
+
+import { UserPararm } from "../schemas/user-schema";
+import { userRepository } from "../repositories/user-repositorie";
 
 const userRouter = Router();
 
 userRouter
     .post("/", async (req: Request, res: Response ) => {
-        const data = req.body;
+        const data = req.body as UserPararm;
 
-        db.user.push(new User(data));
-        console.log(db.user)
-        return res.status(httpStatus.CREATED).json(data);
+        const emailValidation = await userRepository.getByEmail(data.email);
+
+        if(emailValidation){
+            return res.sendStatus(httpStatus.CONFLICT)
+        }
+
+        //data.password = await bcrypt.hash(data.password, 10)
+
+        const newUser = await userRepository.created(data)
+
+        return res.status(httpStatus.CREATED).json(newUser);
     })
 
+
     .get("/teste", async (req: Request, res: Response ) => {
-        let data:any = {...db.user}
-        return res.status(httpStatus.CREATED).json(data);
+        const arrayUsers = [await userRepository.getAll()];
+        return res.status(httpStatus.OK).json(arrayUsers);
     })
 
 
