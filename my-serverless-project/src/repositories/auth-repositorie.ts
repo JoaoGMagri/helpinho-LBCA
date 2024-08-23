@@ -21,12 +21,18 @@ async function getByIdUser(id: string) {
     return(userByIdUser);
 }
 
+async function getById(id: string) {
+    let userByIdUser = db.session.find(user => user.id == id)
+    return(userByIdUser);
+}
+
 async function getAll() {
     return db.session
 }
 
 export const authRepository = {
-    getByIdUser,
     created,
-    getAll
+    getByIdUser,
+    getById,
+    getAll,
 }

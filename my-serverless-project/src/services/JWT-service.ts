@@ -9,7 +9,7 @@ const sing = (userId: JwtData): string | 'JWT_SECRET_NOT_FOUND' => {
         return "JWT_SECRET_NOT_FOUND"
     }
 
-    return jwt.sign(userId, process.env.JWT_SECRET, { expiresIn: "24h"});
+    return jwt.sign(userId, process.env.JWT_SECRET);
 }
 
 const verify = (token:string): JwtData | 'JWT_SECRET_NOT_FOUND' | 'INVALID_TOKEN' => {
