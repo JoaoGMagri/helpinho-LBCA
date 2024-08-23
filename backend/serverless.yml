@@ -1,0 +1,16 @@
+service: helpinho-api-aws
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+
+plugins:
+   - serverless-esbuild
+   - serverless-offline
+
+functions:
+  app:
+    handler: ./src/handler.handler
+    events:
+      - http: ANY /
+      - http: ANY /{proxy+}

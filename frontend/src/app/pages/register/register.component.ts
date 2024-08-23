@@ -28,6 +28,7 @@ export class RegisterComponent {
   onSubmit() {
     const isFormValid = this.form.valid
 
+    console.log(this.form.controls.date.value)
     if(isFormValid){
       let teste = {
         name: this.form.controls.name.value,
@@ -36,7 +37,6 @@ export class RegisterComponent {
         date: this.form.controls.date.value,
         password: this.form.controls.password.value
       };
-
       this.httpClient.post('api/user', teste).subscribe(() => {
         this.router.navigateByUrl("/login")
       });

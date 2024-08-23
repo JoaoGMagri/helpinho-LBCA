@@ -37,10 +37,11 @@ export class HomeComponent {
     }
   ]
 
-  testes = this.httpClient.get<cardHelp[]>('api/help').subscribe((helps) => {
-    this.helpArry = helps
-    console.log(this.helpArry);
-  });
+  ngOnInit():void {
+    this.httpClient.get<cardHelp[]>('api/help').subscribe((helps) => {
+      this.helpArry = helps
+    });
+  }
 
 }
 
