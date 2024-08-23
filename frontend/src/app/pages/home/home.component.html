@@ -33,11 +33,11 @@
     <!--Helps Card-->
     <div class="flex justify-center">
         <div class="grid grid-cols-3">
-            @for (teste of testes; track $index) {
-                @if(!teste.urgent){
-                    <app-card [data]="teste" />
+            @for (helpArry of helpArry; track $index) {
+                @if(!helpArry.urgent){
+                    <app-card [data]="helpArry" />
                 }@else {
-                    <app-card-urgent [data]="teste" />
+                    <app-card-urgent [data]="helpArry" />
                 }
             }
         </div>

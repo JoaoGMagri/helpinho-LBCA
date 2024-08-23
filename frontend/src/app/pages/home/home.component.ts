@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CardComponent } from '../../components/card/card.component';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { CardUrgentComponent } from '../../components/card-urgent/card-urgent.component';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -13,8 +14,10 @@ import { CardUrgentComponent } from '../../components/card-urgent/card-urgent.co
 })
 export class HomeComponent {
 
+  httpClient = inject(HttpClient)
   loginStatus:Boolean = false;
-
+  
+  helpArry: cardHelp[] = [];
   instructions = [
     {
       title: "Escolha",
@@ -34,124 +37,23 @@ export class HomeComponent {
     }
   ]
 
-  testes = [
-    {
-      title:"Comprar um PS5",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Games",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg",
-      },
-      urgent:true,
-      supporters: []
-    },
-    {
-      title:"Comprar um PS6",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Literatura",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg",
-      },
-      urgent:false,
-      supporters: []
-    },
-    {
-      title:"Comprar um PS7",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Doença",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg",
-      },
-      urgent:false,
-      supporters: []
-    },
-    {
-      title:"Comprar um PS7",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Doença",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg", 
-      },
-      urgent:false,
-      supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"]
-    },
-    {
-      title:"Comprar um PS7",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Doença",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg", 
-      },
-      urgent:true,
-      supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"]
-    },
-    {
-      title:"Comprar um PS7",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Doença",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg" 
-      },
-      urgent:false,
-      supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"],
-    },
-    {
-      title:"Comprar um PS7",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Doença",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg" 
-      },
-      urgent:false,
-      supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"],
-    },
-    {
-      title:"Comprar um PS7",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Doença",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg", 
-      },
-      urgent:false,
-      supporters: ["assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg","assets/usuario.jpg"]
-    },
-    {
-      title:"Comprar um PS7",
-      decription:"Meu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novoMeu PS2 queimou e preciso comprar um novo, falta R$5000 para comprar um novo",
-      type: "Games",
-      image: "assets/usuario.jpg",
-      author: { 
-        name: "Olivia Rhye", 
-        email: "olivia@untitledui.com", 
-        image: "assets/usuario.jpg",
-      },
-      urgent:true,
-      supporters: []
-    },
-  ]
+  testes = this.httpClient.get<cardHelp[]>('api/help').subscribe((helps) => {
+    this.helpArry = helps
+    console.log(this.helpArry);
+  });
 
+}
+
+type cardHelp = {
+  title: string;
+  decription: string;
+  type: string;
+  image: string;
+  urgent:boolean
+  author: {
+      name: string;
+      email: string;
+      image: string;
+  };
+  supporters: string[];
 }
