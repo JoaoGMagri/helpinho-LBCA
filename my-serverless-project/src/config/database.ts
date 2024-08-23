@@ -2,7 +2,15 @@ import { Help, Session, User } from "./type";
 
 
 export const db: userTyper = {
-    user: [],
+    user: [{
+      id: "1",
+      name: "joao",
+      email: "joao@joaoo",
+      password: "123456",
+      date: "2001-06-05",
+      number: 1234567890,
+      image: "https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png"
+    }],
     help:[
         {
           title:"Comprar um PS5",
@@ -123,7 +131,14 @@ export const db: userTyper = {
         }
     ],
     donation:[],
-    session:[]
+    session:[{
+      "id": "01J60AC0XQ76ME4TE846H1NGF7",
+      "userId": "1",
+      "name": "joao",
+      "email": "joao@joaoo",
+      "image": "https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png",
+      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiIxIiwiaWF0IjoxNzI0NDQwMjQ5fQ.hnGYKUDjmP802L95wwcyyLxohse7z1Ncyu6bSd__S7A"
+    }]
 };
 
 type userTyper = {

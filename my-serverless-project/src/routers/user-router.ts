@@ -4,6 +4,7 @@ import httpStatus from "http-status";
 
 import { UserPararm } from "../schemas/user-schema";
 import { userRepository } from "../repositories/user-repositorie";
+import { validationToken, validationTokenRequest } from "../middlewares/auth-middlewares";
 
 const userRouter = Router();
 
@@ -24,9 +25,19 @@ userRouter
         return res.status(httpStatus.CREATED).json(newUser);
     })
 
+    .use("/*", validationToken)
+    .get("/:id", async (req: Request, res: Response ) => {
+        const data = req.params.id
 
-    .get("/teste", async (req: Request, res: Response ) => {
-        const arrayUsers = [await userRepository.getAll()];
+        const user = await userRepository.getById(data)
+
+        return res.status(httpStatus.ACCEPTED).json(user);
+    })
+
+    //Rota para testes
+    .get("/teste/teste", async (req: Request, res: Response ) => {
+        const arrayUsers = await userRepository.getAll();
+        console.log(arrayUsers)
         return res.status(httpStatus.OK).json(arrayUsers);
     })
 

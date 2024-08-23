@@ -13,12 +13,18 @@ async function getByEmail(email: string) {
     return(userByEmail);
 }
 
+async function getById(id: string) {
+    let userByEmail = db.user.find(user => user.id === id)
+    return(userByEmail);
+}
+
 async function getAll() {
     return db.user
 }
 
 export const userRepository = {
     created,
+    getById,
     getByEmail,
     getAll,
 }
