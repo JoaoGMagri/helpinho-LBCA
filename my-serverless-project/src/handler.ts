@@ -3,6 +3,8 @@ import express, { json } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { userRouter } from "./routers/user-router";
+import { helpRouter } from "./routers/help-router";
+import { authRouter } from "./routers/auth-router";
 
 dotenv.config();
 const app = express();
@@ -14,7 +16,10 @@ app
         console.log("aqui")
         res.send("ok") 
     } )
+
     .use("/user", userRouter)
+    .use("/help", helpRouter)
+    .use("/auth", authRouter)
 
     
 /* 
