@@ -13,13 +13,13 @@
     @if (loginStatus()) {
         <!--Efetuado o login-->
         <div class="flex items-center gap-3.5">
-            <img class="w-14 h-14 rounded-full" src="assets/usuario.jpg" alt="">
+            <img class="w-14 h-14 rounded-full" src="{{userObj.image}}" alt="">
             <div class="text-neutral-500/80">
-                <p class="text-xl">Olivia Rhye</p>
-                <p class="text-lg">oliviauntitledui.com</p>
+                <p class="text-xl">{{userObj.name}}</p>
+                <p class="text-lg">{{userObj.email}}</p>
             </div>
 
-            <button class="bg-[#ff2e6b] rounded p-2"><img src="assets/log-out.png" alt=""></button>
+            <button (click)="onSubmit()" class="bg-[#ff2e6b] rounded p-2"><img src="assets/log-out.png" alt=""></button>
         </div>
     } @else {
         <!--Sem efetuar login-->

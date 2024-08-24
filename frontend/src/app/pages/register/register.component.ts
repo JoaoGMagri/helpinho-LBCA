@@ -11,10 +11,8 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class RegisterComponent {
 
-  httpClient = inject(HttpClient)
-  router = inject(Router)
-
-
+  httpClient = inject(HttpClient);
+  router = inject(Router);
 
   form = new FormGroup({
     name: new FormControl('', [Validators.required] ),
@@ -26,18 +24,15 @@ export class RegisterComponent {
 
   
   onSubmit() {
-    const isFormValid = this.form.valid
-
-    console.log(this.form.controls.date.value)
-    if(isFormValid){
-      let teste = {
+    if(this.form.valid){
+      let body = {
         name: this.form.controls.name.value,
         email: this.form.controls.email.value,
         number: this.form.controls.number.value,
         date: this.form.controls.date.value,
         password: this.form.controls.password.value
       };
-      this.httpClient.post('api/user', teste).subscribe(() => {
+      this.httpClient.post('api/user', body).subscribe(() => {
         this.router.navigateByUrl("/login")
       });
 

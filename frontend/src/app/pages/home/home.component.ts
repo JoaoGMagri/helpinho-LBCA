@@ -5,6 +5,8 @@ import { CardComponent } from '../../components/card/card.component';
 import { BannerComponent } from '../../components/banner/banner.component';
 import { CardUrgentComponent } from '../../components/card-urgent/card-urgent.component';
 import { HttpClient } from '@angular/common/http';
+import { StorageService } from '../../service/storage.service';
+import { cardHelp } from '../../types/cardHelp-type';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,8 @@ import { HttpClient } from '@angular/common/http';
 export class HomeComponent {
 
   httpClient = inject(HttpClient)
-  loginStatus:Boolean = false;
+  storage = inject(StorageService)
+  loginStatus = this.storage.status();
   
   helpArry: cardHelp[] = [];
   instructions = [
@@ -43,18 +46,4 @@ export class HomeComponent {
     });
   }
 
-}
-
-type cardHelp = {
-  title: string;
-  decription: string;
-  type: string;
-  image: string;
-  urgent:boolean
-  author: {
-      name: string;
-      email: string;
-      image: string;
-  };
-  supporters: string[];
 }

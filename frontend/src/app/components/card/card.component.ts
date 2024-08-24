@@ -1,4 +1,5 @@
 import { Component, input } from '@angular/core';
+import { cardHelp } from '../../types/cardHelp-type';
 
 @Component({
   selector: 'app-card',
@@ -9,17 +10,4 @@ import { Component, input } from '@angular/core';
 
 export class CardComponent {
   data = input<cardHelp>();
-}
-
-type cardHelp = {
-  title: string;
-  decription: string;
-  type: string;
-  image: string;
-  author: {
-      name: string;
-      email: string;
-      image: string;
-  };
-  supporters: string[];
 }
