@@ -7,15 +7,15 @@ import { objUser } from '../types/objUser-type';
 export class StorageService {
 
   constructor() { }
-
-  private contain = localStorage.getItem("user") as string;
+  
+  contain = localStorage.getItem("user") as string;
   status = signal<Boolean>(!!this.contain);
   userObj = signal<objUser>(JSON.parse(this.contain));
 
   saveStorage(data:any){
-    localStorage.clear();
     localStorage.setItem("user", JSON.stringify(data));
     this.status.set(true);
+    this.userObj.set(data);
   }
 
   clearStorage(){

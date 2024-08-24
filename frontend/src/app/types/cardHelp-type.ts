@@ -3,6 +3,7 @@ export type cardHelp = {
     description: string;
     type: string;
     image: string;
+    urgent: boolean;
     author: {
         id: string;
         name: string;

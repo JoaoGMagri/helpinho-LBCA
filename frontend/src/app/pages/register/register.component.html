@@ -15,9 +15,6 @@
             <form [formGroup]="form" (ngSubmit)="onSubmit()" class="flex flex-col w-[400px]">
                 <label for="" class="mb-2">Nome*</label>
                 <input type="text" formControlName="name" class="border-[2px] rounded-lg mb-5 h-[44px]">
-                
-                <label for="" class="mb-2">Email*</label>
-                <input type="email" formControlName="email" class="border-[2px] rounded-lg mb-5 h-[44px]">
 
                 <div class="flex justify-between">
                     <div class="flex flex-col w-1/2 mr-[20px]">
@@ -30,6 +27,9 @@
                         <input type="date" formControlName="date" class="border-[2px] rounded-lg mb-5 h-[44px]">
                     </div>
                 </div>
+
+                <label for="" class="mb-2">Email*</label>
+                <input type="email" formControlName="email" class="border-[2px] rounded-lg mb-5 h-[44px]">
                 
                 <label for="" class="mb-2">Senha*</label>
                 <input type="password" formControlName="password" class="border-[2px] rounded-lg h-[44px]">
