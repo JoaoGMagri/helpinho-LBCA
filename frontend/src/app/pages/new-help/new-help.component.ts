@@ -5,11 +5,12 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { helpObj } from './arrayObj';
+import { HelpComponent } from '../../components/help/help.component';
 
 @Component({
   selector: 'app-new-help',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, ReactiveFormsModule],
+  imports: [HeaderComponent, FooterComponent, HelpComponent ,ReactiveFormsModule],
   templateUrl: './new-help.component.html',
   styleUrl: './new-help.component.css'
 })
@@ -18,7 +19,7 @@ export class NewHelpComponent {
   storage = inject(StorageService)
   loginStatus = this.storage.status();
 
-  i = 0
+  i = 3
   stepsArray = helpObj.stepsArray;
   typesArray = helpObj.typesArray;
   donateArray = helpObj.donateArray;
@@ -27,13 +28,12 @@ export class NewHelpComponent {
   form = new FormGroup({
     type: new FormControl('', [Validators.required] ),
     donate: new FormControl(0, [Validators.required] ),
-  })
-
+  });
   formInfo = new FormGroup({
     title: new FormControl('', [Validators.required] ),
     image: new FormControl('', [Validators.required] ),
     description: new FormControl('', [Validators.required] ),
-  })
+  });
 
   ngOnInit(): void {
     if(!this.storage.status()){

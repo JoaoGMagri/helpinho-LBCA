@@ -7,7 +7,7 @@
         <div class=" w=[499px] h-[80px] flex justify-center items-center border-2 rounded-xl border-[#e7e7e7] p-[10px] my-[20px] ">
             @for (step of stepsArray; track $index) {
                 @if (i == $index) {
-                    <div class="flex">
+                    <div class="flex cursor-pointer">
                         <div class="flex justify-center items-center bg-pink-600 p-[5px] mr-[5px] rounded-full w-[48px] h-[48px]">
                             <img src="{{step.image}}" alt="">
                         </div>
@@ -17,7 +17,7 @@
                         </div>
                     </div>
                 }@else {
-                    <div (click)="selectHelp($index)">
+                    <div class="cursor-pointer" (click)="selectHelp($index)">
                         <img src="{{step.image}}" alt="">
                     </div>
                 }
@@ -72,14 +72,14 @@
                 }
                 @case (i == 3) {
                     <!-- Passo 4 -->
-                    <div>
-                        final
+                    <div class="">
+                        <app-help/>
                     </div>
                 }
             }
         </div>
         <!--Botões de progresso-->
-        <div class="w-full mt-[20px] flex justify-end items-center">
+        <div class="w-full mt-[10px] flex justify-end items-center">
             @if(i != 0){
                 <button (click)="backHelp()" class= "button border-2 border-[#e7e7e7] bg-white text-[#3d3d3d]">Voltar</button>
             }
