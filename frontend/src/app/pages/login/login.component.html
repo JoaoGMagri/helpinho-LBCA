@@ -12,12 +12,12 @@
                 <p class="text-[16px] text-[#4f4f4f]">Entre e ajude os helpinho de hoje</p>
             </div>
             <!--Formulario-->
-            <form action="" class="form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" action="" class="form">
                 <label for="" class="label">E-mail</label>
-                <input type="email" class="input">
+                <input type="email" formControlName="email" class="input">
                 
                 <label for="" class="label">Senha</label>
-                <input type="password" class="input">
+                <input type="password"  formControlName="password" class="input">
                 
                 <div class="flex justify-between items-center mb-[10px]">
                     <div class="flex items-center">
@@ -28,7 +28,7 @@
                 </div>
 
                 <div class="box-button">
-                    <button class="button bg-[#f40b59] text-white">Entrar</button>
+                    <button type="submit" class="button bg-[#f40b59] text-white">Entrar</button>
                     
                     <button class="button flex justify-center items-center bg-white border-[2px] ">
                         <img src="assets/googleIcon.png" alt="" class="mr-[10px]">
