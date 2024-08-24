@@ -1,0 +1,15 @@
+.card-select {
+    @apply border-[#f40b59] border-2 text-[#f40b59]
+}
+
+.card {
+    @apply w-[144px] h-[109px] rounded-xl flex flex-col justify-center items-center m-[20px]
+}
+
+.button{
+    @apply m-[10px] h-[40px] px-[15px] rounded-xl text-[14px] font-semibold
+}
+
+.input{
+    @apply w-full border-2 rounded-xl border-[#e7e7e7]
+}

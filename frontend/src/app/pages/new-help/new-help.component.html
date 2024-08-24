@@ -1,0 +1,96 @@
+<body>
+    <!--Header-->
+    <app-header [loginStatus]="loginStatus"/>
+
+    <div class="flex flex-col items-center p-20 w-full h-screen ">
+        <!--Seleção de passos-->
+        <div class=" w=[499px] h-[80px] flex justify-center items-center border-2 rounded-xl border-[#e7e7e7] p-[10px] my-[20px] ">
+            @for (step of stepsArray; track $index) {
+                @if (i == $index) {
+                    <div class="flex">
+                        <div class="flex justify-center items-center bg-pink-600 p-[5px] mr-[5px] rounded-full w-[48px] h-[48px]">
+                            <img src="{{step.image}}" alt="">
+                        </div>
+                        <div>
+                            <p class="text-[#ff2e6b] text-[12px] font-bold">{{step.title}}</p>
+                            <p class="text-[#454545] text-[16px]">{{step.description}}</p>
+                        </div>
+                    </div>
+                }@else {
+                    <div (click)="selectHelp($index)">
+                        <img src="{{step.image}}" alt="">
+                    </div>
+                }
+                @if( $index != stepsArray.length-1){
+                    <div class="border-[1px] border-[#d1d1d1] h-[32px] m-[10px]"></div>
+                }
+            }
+        </div>
+        <!--Texto de instrução-->
+        <div class="w-full flex flex-col justify-start items-start my-[20px]">
+            <p class="text-[#3d3d3d] text-[20px] font-bold">{{descriptionArray[i].title}}</p>
+            <p class="text-[#4f4f4f] text-[18px]">{{descriptionArray[i].description}}</p>
+        </div>
+        <!--Opção de registros-->
+        <div class="flex w-full h-full border-2 rounded-xl border-[#e7e7e7]">
+            @switch (true) {
+                @default {
+                    <!-- Passo 1 -->
+                    @for (type of typesArray; track $index) {
+                        <div (click)="optionType(type.typeSelect)" [class.card-select]="form.get('type')?.value === type.typeSelect" class="card border-[#e7e7e7] border text-[#4f4f4f]">
+                            <img src="{{type.image}}" alt="">
+                            <p class="text-[14px] mt-[15px]">{{type.name}}</p>
+                        </div>
+                    }
+                }
+                @case (i == 1) {
+                    <!-- Passo 2 -->
+                    <form [formGroup]="formInfo" class="w-full flex flex-col justify-center text-[#4f4f4f] text-[14px] p-[15px]">
+                        <div class="my-[10px]">
+                            <label for="">Titulo do helpinho</label>
+                            <input formControlName="title" type="text" class="input" placeholder="Seu titulo aqui">
+                        </div>
+                        <div class="my-[10px]">
+                            <label for="">Imagem</label>
+                            <input formControlName="image" type="text" class="input" placeholder="Link da sua imagem">
+                        </div>
+                        <div class="h-full my-[10px]">
+                            <label for="">Descrição</label>
+                            <textarea formControlName="description" type="text" class="input h-5/6" placeholder="Escreva a descrição do seu helpinho, não economize nas palavras"></textarea>
+                        </div>
+                    </form>
+                }
+                @case (i == 2) {
+                     <!-- Passo 3 -->
+                    @for (donate of donateArray; track $index) {
+                        <div (click)="optionDonate(donate.donateSelect)" [class.card-select]="form.get('donate')?.value === donate.donateSelect" class="card border-[#e7e7e7] border text-[#4f4f4f]">
+                            <img src="{{donate.image}}" alt="">
+                            <p class="text-[14px] mt-[15px]">{{donate.name}}</p>
+                        </div>
+                    }
+                    
+                }
+                @case (i == 3) {
+                    <!-- Passo 4 -->
+                    <div>
+                        final
+                    </div>
+                }
+            }
+        </div>
+        <!--Botões de progresso-->
+        <div class="w-full mt-[20px] flex justify-end items-center">
+            @if(i != 0){
+                <button (click)="backHelp()" class= "button border-2 border-[#e7e7e7] bg-white text-[#3d3d3d]">Voltar</button>
+            }
+            @if(i != 3) {
+                <button (click)="advanceHelp()" class="button bg-[#f40b59] text-white">Continuar</button>
+            } @else {
+                <button (click)="concludeHelp()" class="button bg-[#f40b59] text-white">Publicar Helpinho</button>
+            }
+        </div>
+    </div>
+
+    <!--Footer-->
+    <app-footer/>
+</body>
