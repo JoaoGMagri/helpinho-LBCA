@@ -19,7 +19,19 @@ async function getByIdHelp(id:string){
     return(usersIdDonate);
 }
 
+async function getByIdUser(id:string){
+    const usersIdDonate = db.donation.map( donate => {
+        if(donate.userId === id) {
+            return donate 
+        }
+        return null;
+    });
+
+    return(usersIdDonate);
+}
+
 export const donationRepository = {
     created,
-    getByIdHelp
+    getByIdHelp,
+    getByIdUser
 }

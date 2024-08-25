@@ -17,8 +17,20 @@ async function getById(id: string) {
     return(helpById);
 }
 
+async function getAllByIdUser(id:string){
+    const usersIdHelp = db.help.map( help => {
+        if(help.author === id) {
+            return help 
+        }
+        return null;
+    });
+
+    return(usersIdHelp);
+}
+
 export const helpRepository = {
     created,
     getAll,
-    getById
+    getById,
+    getAllByIdUser
 }
