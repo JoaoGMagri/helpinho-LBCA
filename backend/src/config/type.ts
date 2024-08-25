@@ -15,7 +15,7 @@ export class User {
         this.email = data.email;
         this.password = data.password;
         this.date = data.date
-        this.image = "https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png"
+        this.image = "https://s2-techtudo.glbimg.com/SSAPhiaAy_zLTOu3Tr3ZKu2H5vg=/0x0:1024x609/888x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2022/c/u/15eppqSmeTdHkoAKM0Uw/dall-e-2.jpg"
         this.number = data.number
     }
 }
@@ -29,7 +29,6 @@ export class Help {
     image: string;
     author: string;
     urgent: boolean;
-    supportes: string[];
 
     constructor(data:any, idUser:string){
         this.id = ulid();
@@ -40,7 +39,6 @@ export class Help {
         this.image = data.image;
         this.author = idUser;
         this.urgent = data.urgent;
-        this.supportes = [];
     }
 
     interface 
@@ -62,5 +60,19 @@ export class Session {
         this.email = data.email;
         this.image = data.image;
         this.token = data.token;
+    }
+}
+
+export class Donate {
+    id: string;
+    userId: string;
+    helpId: string;
+    donate: string;
+
+    constructor(data:any, idUser:string) {
+        this.id = ulid();
+        this.userId = idUser;
+        this.helpId = data.helpId;
+        this.donate = data.donate;
     }
 }

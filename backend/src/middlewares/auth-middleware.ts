@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import { JWTService } from "../services/JWT-service";
 import httpStatus from "http-status";
+import { userRepository } from "../repositories/user-repositorie";
 
 export type validationTokenRequest = Request & JwtData;
 
@@ -16,8 +17,12 @@ export async function validationToken(req: validationTokenRequest, res: Response
     }
 
     const userValid = JWTService.verify(token) as JwtData
+    if(!userValid){
+        return res.sendStatus(httpStatus.UNAUTHORIZED);
+    }
 
-    if( !userValid){
+    const userExists = await userRepository.getById(userValid.userId)
+    if(!userExists){
         return res.sendStatus(httpStatus.UNAUTHORIZED);
     }
 

@@ -3,6 +3,7 @@ import httpStatus from "http-status";
 import { validationToken, validationTokenRequest } from "../middlewares/auth-middleware"
 import { helpRepository } from "../repositories/help-repositorie";
 import { userRepository } from "../repositories/user-repositorie";
+import { donationRepository } from "../repositories/donate-repositorie";
 
 const helpRouter = Router();
 
@@ -21,6 +22,20 @@ helpRouter
                 return res.sendStatus(httpStatus.BAD_REQUEST)
             }
 
+            const donateObj = await donationRepository.getByIdHelp(arrayHelp[i].id);
+
+            const donateImage = [];
+            let donateValue = 0;
+            if(donateObj.length > 0 ) {
+                for (let j = 0; j < donateObj.length; j++) {
+                    
+                    if(donateObj[j] != null){
+                        const userObj = await userRepository.getById(donateObj[j].userId)
+                        donateImage.push(userObj.image);
+                        donateValue += donateObj[j].donate;
+                    }
+                }
+            }
             arrayHelpObj.push( {
                 id: arrayHelp[i].id,
                 title: arrayHelp[i].title,
@@ -34,7 +49,8 @@ helpRouter
                     image: user.image,
                 },
                 urgent: arrayHelp[i].urgent,
-                supportes: arrayHelp[i].supportes,
+                supportes: donateImage,
+                donate: donateValue,
             } )
         }
 
@@ -54,6 +70,19 @@ helpRouter
             return res.sendStatus(httpStatus.BAD_REQUEST)
         }
 
+        const donate = await donationRepository.getByIdHelp(help.id);
+        const donateImage = [];
+        let donateValue = 0;
+        if(donate.length > 0){
+            for (let i = 0; i < donate.length; i++) {
+                if(donate[i] != null){
+                    const userObj = await userRepository.getById(donate[i].userId)
+                    donateImage.push(userObj.image);
+                    donateValue += donate[i].donate;
+                }
+            }
+        }
+
         const helpObj = {
             id: help.id,
             title: help.title,
@@ -68,7 +97,8 @@ helpRouter
                 image: user.image,
             },
             urgent: help.urgent,
-            supportes: help.supportes,
+            supportes: donateImage,
+            donate: donateValue,
         }
 
         return res.status(httpStatus.ACCEPTED).json(helpObj);
@@ -76,12 +106,12 @@ helpRouter
 
     .use("/*", validationToken)
     .post("/", async (req: validationTokenRequest, res: Response ) => {
-        const helpObj = req.userId
+        const userId = req.userId
         const data = req.body
 
-        const help = await helpRepository.created(data, helpObj)
+        const help = await helpRepository.created(data, userId)
 
-        return res.status(httpStatus.ACCEPTED).json(help);
+        return res.status(httpStatus.CREATED).json(help);
     })
 
 export { helpRouter };
