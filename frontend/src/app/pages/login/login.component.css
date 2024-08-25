@@ -6,10 +6,6 @@
     @apply w-1/2 flex flex-col justify-around items-center relative
 }
 
-.box-right {
-    @apply w-1/2 rounded-xl mx-[10px]
-}
-
 .imagem-Logo{
     @apply absolute top-0 left-0 cursor-pointer
 }

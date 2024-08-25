@@ -2,11 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
+import { CarouselComponent } from "../../components/carousel/carousel.component";
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [RouterLink, ReactiveFormsModule],
+  imports: [RouterLink, ReactiveFormsModule, CarouselComponent],
   templateUrl: './register.component.html',
 })
 export class RegisterComponent {
@@ -17,9 +18,9 @@ export class RegisterComponent {
   form = new FormGroup({
     name: new FormControl('', [Validators.required] ),
     email: new FormControl('', [Validators.required, Validators.email] ),
-    number: new FormControl('', [Validators.required] ),
+    number: new FormControl('', [Validators.required, Validators.pattern("[0-9]+"), Validators.minLength(11)] ),
     date: new FormControl('', [Validators.required] ),
-    password: new FormControl('', [Validators.required] ),
+    password: new FormControl('', [Validators.required, Validators.pattern("([a-zA-Z]+[0-9]|[0-9]+[a-zA-Z])[a-zA-Z0-9]*"), Validators.minLength(8)] ),
   })
 
   
