@@ -47,32 +47,32 @@ export const helpObj = {
         {
           image: "assets/images-donate-help/icon1.png",
           name: "R$ 100,00",
-          donateSelect: 100
+          donateSelect: "100"
         },
         {
           image: "assets/images-donate-help/icon1.png",
           name: "R$ 1.000,00",
-          donateSelect: 1000
+          donateSelect: "1000"
         },
         {
           image: "assets/images-donate-help/icon1.png",
           name: "R$ 5.000,00",
-          donateSelect: 5000
+          donateSelect: "5000"
         },
         {
           image: "assets/images-donate-help/icon3.svg",
           name: "R$ 10.000,00",
-          donateSelect: 10000
+          donateSelect: "10000"
         },
         {
           image: "assets/images-donate-help/icon3.svg",
           name: "R$ 20.000,00",
-          donateSelect: 20000
+          donateSelect: "20000"
         },
         {
           image: "assets/images-donate-help/icon3.svg",
           name: "R$ 50.000,00",
-          donateSelect: 50000
+          donateSelect: "50000"
         }
     ],
     descriptionArray: [

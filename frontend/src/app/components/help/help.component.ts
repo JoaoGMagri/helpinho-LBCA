@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+import { cardHelp } from '../../types/cardHelp-type';
 
 @Component({
   selector: 'app-help',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './help.component.css'
 })
 export class HelpComponent {
-
+  help =  input<cardHelp>();
 }

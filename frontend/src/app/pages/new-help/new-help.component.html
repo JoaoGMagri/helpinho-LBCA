@@ -63,7 +63,7 @@
                 @case (i == 2) {
                      <!-- Passo 3 -->
                     @for (donate of donateArray; track $index) {
-                        <div (click)="optionDonate(donate.donateSelect)" [class.card-select]="form.get('donate')?.value === donate.donateSelect" class="card border-[#e7e7e7] border text-[#4f4f4f]">
+                        <div (click)="optionDonate(donate.donateSelect)" [class.card-select]="form.get('gols')?.value === donate.donateSelect" class="card border-[#e7e7e7] border text-[#4f4f4f]">
                             <img src="{{donate.image}}" alt="">
                             <p class="text-[14px] mt-[15px]">{{donate.name}}</p>
                         </div>
@@ -73,7 +73,7 @@
                 @case (i == 3) {
                     <!-- Passo 4 -->
                     <div class="">
-                        <app-help/>
+                        <app-help [help]="helpFinal"/>
                     </div>
                 }
             }

@@ -1,9 +1,11 @@
 export type cardHelp = {
+    id: string;
     title: string;
     description: string;
     type: string;
     image: string;
     urgent: boolean;
+    gols: string
     author: {
         id: string;
         name: string;

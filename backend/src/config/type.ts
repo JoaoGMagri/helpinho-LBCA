@@ -25,6 +25,7 @@ export class Help {
     title: string;
     description: string;
     type: string;
+    gols: string;
     image: string;
     author: string;
     urgent: boolean;
@@ -35,10 +36,11 @@ export class Help {
         this.title = data.title;
         this.description = data.description;
         this.type = data.type;
-        this.image = data.image
-        this.author = idUser
-        this.urgent = data.urgent
-        this.supportes = []
+        this.gols = data.gols;
+        this.image = data.image;
+        this.author = idUser;
+        this.urgent = data.urgent;
+        this.supportes = [];
     }
 
     interface 
