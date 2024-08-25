@@ -5,6 +5,7 @@ import cors from "cors";
 import { userRouter } from "./routers/user-router";
 import { helpRouter } from "./routers/help-router";
 import { authRouter } from "./routers/auth-router";
+import { donateRouter } from "./routers/donate-router";
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,7 @@ app
     .use("/user", userRouter)
     .use("/help", helpRouter)
     .use("/auth", authRouter)
+    .use("/donate", donateRouter)
 
     
 /* 
