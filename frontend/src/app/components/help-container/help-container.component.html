@@ -20,8 +20,11 @@
             </div>
             
             <div class="border-[1px] border-[#d1d1d1] w-[80%] m-[10px]"></div>
-
-            <button (click)="ngSubmit()" class="w-[80%] text-[#ffc8d6] text-[16px] font-bold bg-[#ff2e6b] rounded-lg p-2">Apoiar</button>
+            @if (loginStatus()) {
+                <button (click)="ngSubmit()" class="w-[80%] text-[#ffc8d6] text-[16px] font-bold bg-[#ff2e6b] rounded-lg p-2">Apoiar</button>
+            }@else {
+                <Button routerLink="/login" class="w-[80%] text-[#ffc8d6] bg-[#ff2e6b] rounded-lg p-2">Login</Button>
+            }
         </div>
     </div>
 
