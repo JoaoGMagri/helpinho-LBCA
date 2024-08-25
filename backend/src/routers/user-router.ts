@@ -1,6 +1,6 @@
+//import bcrypt from "bcrypt"
 import { Request, Response, Router } from "express";
 import httpStatus from "http-status";
-//const bcrypt = require("bcrypt");
 
 import { UserPararm } from "../schemas/user-schema";
 import { userRepository } from "../repositories/user-repositorie";
@@ -76,10 +76,11 @@ userRouter
     })
 
     //Rota para testes
+    /*
     .get("/teste/teste", async (req: Request, res: Response ) => {
         const arrayUsers = await userRepository.getAll();
         return res.status(httpStatus.OK).json(arrayUsers);
     })
-
+    */
 
 export { userRouter };

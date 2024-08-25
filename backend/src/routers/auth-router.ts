@@ -40,11 +40,14 @@ authRouter
 
     })
 
+    //Rota para teste
+    /*
     .get("/teste", async (req: Request, res: Response ) => {
         const arrayUsers = [await authRepository.getAll()];
         return res.status(httpStatus.OK).json(arrayUsers);
     })
-
+    */
+   
 interface userSession {
     email: string;
     password: string
