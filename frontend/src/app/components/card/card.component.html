@@ -1,11 +1,11 @@
-<div class=" border rounded-xl w-96 m-10 flex flex-col justify-center items-center">
+<div class=" border rounded-xl w-96 m-10 flex flex-col justify-center items-center cursor-pointer">
     <!--Imagem do Help-->
     <div class=" flex justify-end items-end static w-full">
         <img class="w-full h-56 rounded-t-xl bg-cover" src={{data()?.image}} alt="">
         <p class="absolute bg-[#ffe2e7] text-[#ce024c] text-xs rounded-xl p-2 m-2">{{data()?.type}}</p>
     </div>
 
-    <div>
+    <div class="w-full">
         <!--Informações do Criador do help-->
         <div class="flex items-center gap-3.5 m-5">
             <img class="w-8 h-8 rounded-full" src={{data()?.author?.image}} alt="">

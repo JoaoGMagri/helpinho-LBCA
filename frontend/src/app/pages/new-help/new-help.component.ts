@@ -39,7 +39,7 @@ export class NewHelpComponent {
     },
     supporters: [],
   };
-  i = 0;
+  i = 3;
   stepsArray = helpObj.stepsArray;
   typesArray = helpObj.typesArray;
   donateArray = helpObj.donateArray;
