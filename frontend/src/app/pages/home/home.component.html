@@ -20,20 +20,21 @@
     </ul>
     
     <!--Pesquisa dos helps-->
-    <form class="h-[64px] flex justify-center">
-        <input class="w-[798px] h-[64px] border-2 mr-10 rounded-xl" type="text" placeholder="Quem vamos ajudar hoje?">
-        <select class="w-[320px] border-2 rounded-xl" name="" id="">
+    <form [formGroup]="form" (change)="onSubmit()" class="h-[64px] flex justify-center">
+        <input formControlName="search" type="text" class="w-[798px] h-[64px] border-2 mr-10 rounded-xl"  placeholder="Quem vamos ajudar hoje?">
+        <select formControlName="type" class="w-[320px] border-2 rounded-xl" name="" id="">
             <option value="">Escolha uma categoria</option>
-            <option value="Games">Games</option>
-            <option value="Literatura">Literatura</option>
-            <option value="Doença">Doença</option>
+            <option value="Jogos">Jogos</option>
+            <option value="Saúde">Saúde</option>
+            <option value="Hospitalar">Hospitalar</option>
+            <option value="Emergência">Emergência</option>
         </select>
     </form>
 
     <!--Helps Card-->
     <div class="flex justify-center">
         <div class="grid grid-cols-3">
-            @for (helpArry of helpArry; track $index) {
+            @for (helpArry of helpArryFilter; track $index) {
                 @if(!helpArry.urgent){
                     <app-card [data]="helpArry" (click)="helpPages(helpArry.id)" />
                 }@else {

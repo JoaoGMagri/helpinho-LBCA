@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, ElementRef, inject, signal, ViewChild } from '@angular/core';
 import { HeaderComponent } from '../../components/header/header.component';
 import { FooterComponent } from '../../components/footer/footer.component';
 import { CardComponent } from '../../components/card/card.component';
@@ -10,11 +10,13 @@ import { cardHelp } from '../../types/cardHelp-type';
 import { Router } from '@angular/router';
 import { objUser } from '../../types/objUser-type';
 import { UserInfo } from '../../types/userApi-type';
+import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { HelpContainerComponent } from '../../components/help-container/help-container.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, BannerComponent, CardComponent, CardUrgentComponent],
+  imports: [HeaderComponent, FooterComponent, BannerComponent, CardComponent, CardUrgentComponent, ReactiveFormsModule],
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
@@ -25,6 +27,7 @@ export class HomeComponent {
   userObj: objUser= this.storage.userObj();
   
   helpArry: cardHelp[] = [];
+  helpArryFilter:cardHelp[] = [];
   userInfo: UserInfo = {
     id: "",
     name: "",
@@ -55,18 +58,41 @@ export class HomeComponent {
       description: "Fique ligado, acompanhe se o helpinho alcançou o objetivo"
     }
   ]
+  
+  form = new FormGroup({
+    search: new FormControl(''),
+    type: new FormControl('')
+  })
 
   ngOnInit():void {
     this.httpClient.get<UserInfo>('api/user/'+this.userObj.userId, {headers: {setHeaders: this.userObj.token}}).subscribe((res) => {
       this.userInfo = res
       this.httpClient.get<cardHelp[]>('api/help').subscribe((helps) => {
         this.helpArry = helps
+        this.helpArryFilter = helps
       });
     });
   }
 
   helpPages(id: string){
     this.router.navigateByUrl('/help/' + id);
+  }
+  
+
+  onSubmit() {
+    const search = this.form.controls.search.value
+    const type = this.form.controls.type.value
+
+    if(type){
+      this.helpArryFilter = this.helpArry.filter( help => help.type === type)
+    } else{
+      this.helpArryFilter = this.helpArry
+    }
+
+    if(search){
+      this.helpArryFilter = this.helpArryFilter.filter( help => help.title === search)
+    }
+
   }
 
 }
