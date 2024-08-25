@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 import { StorageService } from '../../service/storage.service';
 import { cardHelp } from '../../types/cardHelp-type';
 import { Router } from '@angular/router';
+import { objUser } from '../../types/objUser-type';
+import { UserInfo } from '../../types/userApi-type';
 
 @Component({
   selector: 'app-home',
@@ -20,8 +22,21 @@ export class HomeComponent {
   httpClient = inject(HttpClient)
   storage = inject(StorageService)
   loginStatus = this.storage.status();
+  userObj: objUser= this.storage.userObj();
   
   helpArry: cardHelp[] = [];
+  userInfo: UserInfo = {
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    date: "",
+    number: "",
+    image: "",
+    donateParticipation: 0,
+    donateValue: 0,
+    helpCreated: 0
+  };
   instructions = [
     {
       title: "Escolha",
@@ -42,8 +57,11 @@ export class HomeComponent {
   ]
 
   ngOnInit():void {
-    this.httpClient.get<cardHelp[]>('api/help').subscribe((helps) => {
-      this.helpArry = helps
+    this.httpClient.get<UserInfo>('api/user/'+this.userObj.userId, {headers: {setHeaders: this.userObj.token}}).subscribe((res) => {
+      this.userInfo = res
+      this.httpClient.get<cardHelp[]>('api/help').subscribe((helps) => {
+        this.helpArry = helps
+      });
     });
   }
 

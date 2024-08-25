@@ -10,7 +10,7 @@
             <div class="flex justify-around items-center w-1/2 h-[80px] bg-white bg-opacity-50 rounded-xl text-[17px] text-[#5d5d5d]">
                 <div class="text[17px] text-[#5d5d5d]">
                     <p>Criou</p>
-                    <span class="text[24px] text-[#ff2e6b] font-bold">17</span> 
+                    <span class="text[24px] text-[#ff2e6b] font-bold">{{userInfo()?.helpCreated}}</span> 
                     <span> helpinhos</span>
                 </div>
                 <div>
@@ -24,8 +24,8 @@
         <!--Box de imagens-->
         <div class="w-[210px] h-[250px] flex flex-col justify-center items-center bg-[url('assets/mask-group.png')] bg-no-repeat text-[14px] text-[#3d3d3d]">
             <p>Você já doou</p>
-            <p class="text-[17px] text-[#ff2e6b]">R$ <span class="text-[40px] text-[#f40b59]">1.516,25</span> </p>
-            <p class="text-[40px] text-[#f40b59] mt-10">17</p>
+            <p class="text-[17px] text-[#ff2e6b]">R$ <span class="text-[40px] text-[#f40b59]">{{userInfo()?.donateValue}}</span> </p>
+            <p class="text-[40px] text-[#f40b59] mt-10">{{userInfo()?.donateParticipation}}</p>
             <p>Helpinhos alegres</p>
         </div>
     }@else {
