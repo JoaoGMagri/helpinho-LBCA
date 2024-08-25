@@ -21,12 +21,12 @@
         </div>
         <!--Apoiadores do help-->
         <div class="flex justify-start static h-[40px]">        
-            @for (item of data()?.supporters; track $index;) {
+            @for (item of data()?.supportes; track $index;) {
                 <div class="ml-[20px]">
                     @if ($index < 10) {
                         <img class="w-8 h-8 rounded-full absolute overflow-hidden border-2 border-white" src={{item}} alt="">
                     }@else if ($index == 10) {
-                        <div class="w-8 h-8 rounded-full border-2 border-white absolute bg-[#fff0f3] text-[#ff648e] flex justify-center items-center">+{{data()?.supporters?.length! - 10}}</div> 
+                        <div class="w-8 h-8 rounded-full border-2 border-white absolute bg-[#fff0f3] text-[#ff648e] flex justify-center items-center">+{{data()?.supportes?.length! - 10}}</div> 
                     }
                 </div>
             }

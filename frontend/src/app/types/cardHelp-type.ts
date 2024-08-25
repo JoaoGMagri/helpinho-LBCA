@@ -12,5 +12,6 @@ export type cardHelp = {
         email: string;
         image: string;
     };
-    supporters: string[];
+    supportes: string[];
+    donate: string;
   }

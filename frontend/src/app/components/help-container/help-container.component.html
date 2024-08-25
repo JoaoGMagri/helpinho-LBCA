@@ -14,14 +14,14 @@
     
         <div class="w-2/6 flex flex-col items-center justify-around border-2 rounded-xl ml-[30px] py-[20px] bg-white">
             <div class="flex flex-col items-center ">
-                <p class="text-[30px] text-[#f40b59] font-bold m-[10px]">R$ 1.941,50</p>
-                <p class="text-[16px] text-[#454545] m-[10px]">apoiado por 200 pessoas</p>
+                <p class="text-[30px] text-[#f40b59] font-bold m-[10px]">R$ {{help()?.donate}}</p>
+                <p class="text-[16px] text-[#454545] m-[10px]">apoiado por {{help()?.supportes?.length}} pessoas</p>
                 <p class="text-[16px] text-[#454545] m-[10px]">Meta <span class="text-[20px] text-[#f40b59] font-bold">R$ {{help()?.gols}}</span></p>
             </div>
             
             <div class="border-[1px] border-[#d1d1d1] w-[80%] m-[10px]"></div>
 
-            <button class="w-[80%] text-[#ffc8d6] text-[16px] font-bold bg-[#ff2e6b] rounded-lg p-2">Apoiar</button>
+            <button (click)="ngSubmit()" class="w-[80%] text-[#ffc8d6] text-[16px] font-bold bg-[#ff2e6b] rounded-lg p-2">Apoiar</button>
         </div>
     </div>
 

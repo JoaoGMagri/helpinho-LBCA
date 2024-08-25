@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { cardHelp } from '../../types/cardHelp-type';
 import { StorageService } from '../../service/storage.service';
+import { objUser } from '../../types/objUser-type';
 
 @Component({
   selector: 'app-help',
@@ -16,9 +17,11 @@ import { StorageService } from '../../service/storage.service';
 })
 export class HelpComponent {
   route = inject(ActivatedRoute);
-  httpClient = inject(HttpClient)
-  storage = inject(StorageService)
+  httpClient = inject(HttpClient);
+  storage = inject(StorageService);
   loginStatus = this.storage.status();
+  userObj: objUser= this.storage.userObj();
+  idHelp = this.route.snapshot.params['id']
   
   help: cardHelp = {
     id: "",
@@ -34,15 +37,13 @@ export class HelpComponent {
         email: "",
         image: "",
     },
-    supporters: [],
+    supportes: [],
+    donate:""
   }
 
   ngOnInit(): void {
-    const helpId = this.route.snapshot.params['id'];
-    
-    this.httpClient.get<cardHelp>('api/help/'+ helpId).subscribe((helps) => {
+    this.httpClient.get<cardHelp>('api/help/'+ this.idHelp).subscribe((helps) => {
       this.help = helps
-      console.log(this.help)
     });
   }
 }

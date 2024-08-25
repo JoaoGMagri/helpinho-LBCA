@@ -37,9 +37,10 @@ export class NewHelpComponent {
       email: "",
       image: "",
     },
-    supporters: [],
+    supportes: [],
+    donate: "",
   };
-  i = 3;
+  i = 0;
   stepsArray = helpObj.stepsArray;
   typesArray = helpObj.typesArray;
   donateArray = helpObj.donateArray;
@@ -123,9 +124,10 @@ export class NewHelpComponent {
         email: this.userObj.email,
         image: this.userObj.image,
       },
-      supporters: [],
+      supportes: [],
+      donate: "0"
     }
-    console.log(this.helpFinal)
+
   }
 
   concludeHelp(){
@@ -136,13 +138,11 @@ export class NewHelpComponent {
       gols: this.form.controls.gols.value,
       image: this.formInfo.controls.image.value,
       urgent: false,
-      supportes: []
     }
 
     this.httpClient.post('api/help', body, {headers: {setHeaders: this.userObj.token}}).subscribe((res) => {
       this.router.navigateByUrl("/");
     });
-    console.log("terminou")
   }
 
 }

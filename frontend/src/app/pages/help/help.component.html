@@ -2,7 +2,7 @@
     <app-header [loginStatus]="loginStatus"/>
 
     <div class="h-screen w-screen fixed mt-[100px] flex justify-center">
-        <app-help-container [help]="help"/>
+        <app-help-container [help]="help" (helpUpdate)="ngOnInit()"/>
     </div>
 
 </div>
