@@ -2,12 +2,12 @@ import { Component, input } from '@angular/core';
 import { cardHelp } from '../../types/cardHelp-type';
 
 @Component({
-  selector: 'app-help',
+  selector: 'app-help-container',
   standalone: true,
   imports: [],
-  templateUrl: './help.component.html',
-  styleUrl: './help.component.css'
+  templateUrl: './help-container.component.html',
+  styleUrl: './help-container.component.css'
 })
-export class HelpComponent {
+export class HelpContainerComponent {
   help =  input<cardHelp>();
 }

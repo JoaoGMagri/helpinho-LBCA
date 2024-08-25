@@ -35,9 +35,9 @@
         <div class="grid grid-cols-3">
             @for (helpArry of helpArry; track $index) {
                 @if(!helpArry.urgent){
-                    <app-card [data]="helpArry" />
+                    <app-card [data]="helpArry" (click)="helpPages(helpArry.id)" />
                 }@else {
-                    <app-card-urgent [data]="helpArry" />
+                    <app-card-urgent [data]="helpArry" (click)="helpPages(helpArry.id)"/>
                 }
             }
         </div>

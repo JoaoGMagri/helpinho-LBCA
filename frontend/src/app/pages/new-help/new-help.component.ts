@@ -5,16 +5,14 @@ import { FooterComponent } from '../../components/footer/footer.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { helpObj } from './arrayObj';
-import { HelpComponent } from '../../components/help/help.component';
+import { HelpContainerComponent } from '../../components/help-container/help-container.component';
 import { objUser } from '../../types/objUser-type';
-import { cardHelp } from '../../types/cardHelp-type';
-import { NonNullAssert } from '@angular/compiler';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-new-help',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, HelpComponent ,ReactiveFormsModule],
+  imports: [HeaderComponent, FooterComponent, HelpContainerComponent ,ReactiveFormsModule],
   templateUrl: './new-help.component.html',
   styleUrl: './new-help.component.css'
 })

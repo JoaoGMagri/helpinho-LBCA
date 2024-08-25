@@ -59,6 +59,7 @@ helpRouter
             title: help.title,
             description: help.description,
             type: help.type,
+            gols: help.gols,
             image: help.image,
             author: {
                 id: user.id,

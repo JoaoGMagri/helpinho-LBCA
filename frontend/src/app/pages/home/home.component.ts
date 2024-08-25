@@ -7,6 +7,7 @@ import { CardUrgentComponent } from '../../components/card-urgent/card-urgent.co
 import { HttpClient } from '@angular/common/http';
 import { StorageService } from '../../service/storage.service';
 import { cardHelp } from '../../types/cardHelp-type';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,7 @@ import { cardHelp } from '../../types/cardHelp-type';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-
+  router = inject(Router);
   httpClient = inject(HttpClient)
   storage = inject(StorageService)
   loginStatus = this.storage.status();
@@ -44,6 +45,10 @@ export class HomeComponent {
     this.httpClient.get<cardHelp[]>('api/help').subscribe((helps) => {
       this.helpArry = helps
     });
+  }
+
+  helpPages(id: string){
+    this.router.navigateByUrl('/help/' + id);
   }
 
 }
