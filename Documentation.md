@@ -17,7 +17,7 @@
 
 **Autenticação**
 
-O `token` é dado quando o usuario realisa o login 
+O `token` é dado quando o usuario realiza o login 
 
 ``` TS
     {
