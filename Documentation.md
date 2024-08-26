@@ -197,6 +197,7 @@ O `token` é dado quando o usuario realiza o login
             "title": string;
             "description": string;
             "type": string;
+            "gols": string,
             "image": string;
             "author": {
                 "id": string;
